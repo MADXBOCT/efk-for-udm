@@ -201,7 +201,7 @@ services:
       es01:
         condition: service_healthy
     #image: docker.elastic.co/beats/elastic-agent:${STACK_VERSION}
-    image: elastic/elastic-agent:master
+    image: elastic/elastic-agent:latest
     volumes:
       - certs:/certs
       - fleetserverdata:/usr/share/elastic-agent
