@@ -17,8 +17,8 @@ networks:
 
 services:
   setup:
-    #image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
-    image: elastic/elasticsearch:${STACK_VERSION}
+    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
+    #image: elastic/elasticsearch:${STACK_VERSION}
     volumes:
       - certs:/usr/share/elasticsearch/config/certs
     user: "0"
@@ -82,8 +82,8 @@ services:
     depends_on:
       setup:
         condition: service_healthy
-    #image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
-    image: elastic/elasticsearch:${STACK_VERSION}
+    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
+    #image: elastic/elasticsearch:${STACK_VERSION}
     labels:
       co.elastic.logs/module: elasticsearch
     volumes:
@@ -127,8 +127,8 @@ services:
     depends_on:
       es01:
         condition: service_healthy
-    #image: docker.elastic.co/kibana/kibana:${STACK_VERSION}
-    image: elastic/kibana:${STACK_VERSION}
+    image: docker.elastic.co/kibana/kibana:${STACK_VERSION}
+    #image: elastic/kibana:${STACK_VERSION}
     labels:
       co.elastic.logs/module: kibana
     volumes:
@@ -169,8 +169,8 @@ services:
         condition: service_healthy
       kibana:
         condition: service_healthy
-    #image: docker.elastic.co/beats/metricbeat:${STACK_VERSION}
-    image: elastic/metricbeat:${STACK_VERSION}
+    image: docker.elastic.co/beats/metricbeat:${STACK_VERSION}
+    #image: elastic/metricbeat:${STACK_VERSION}
     user: root
     volumes:
       - certs:/usr/share/metricbeat/certs
@@ -200,8 +200,8 @@ services:
         condition: service_healthy
       es01:
         condition: service_healthy
-    #image: docker.elastic.co/beats/elastic-agent:${STACK_VERSION}
-    image: elastic/elastic-agent:${STACK_VERSION}
+    image: docker.elastic.co/beats/elastic-agent:${STACK_VERSION}
+    #image: elastic/elastic-agent:${STACK_VERSION}
     volumes:
       - certs:/certs
       - fleetserverdata:/usr/share/elastic-agent
